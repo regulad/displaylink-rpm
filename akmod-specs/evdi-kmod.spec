@@ -11,15 +11,15 @@
 %global debug_package %{nil}
 
 Name:		evdi-kmod
-Version:	1.14.8
+Version:	1.14.10
 # Taken over by kmodtool
 Release:	1%{?dist}
 Summary:	Extensible Virtual Display Interface Kernel module
 License:	GPLv2
 URL:		https://github.com/DisplayLink/evdi
-Source0:	%{url}/archive/3a82424f1a1e0154ff6dd910a3ff15fe01ea6170.tar.gz
-# libevdi CI tests from kernel 4.15 to 6.13
-Requires:	kernel >= 4.15, kernel <= 6.13
+%global evdi_commit 600ed4342a7251d4575ee4810756649f9e77cdf0
+Source0:	%{url}/archive/%{evdi_commit}.tar.gz
+Requires:	kernel >= 4.15, kernel <= 6.14
 # get the needed BuildRequires (in parts depending on what we build for)
 %global AkmodsBuildRequires %{_bindir}/kmodtool
 BuildRequires:	%{AkmodsBuildRequires}
@@ -40,7 +40,7 @@ This is primarily used by DisplayLink graphics devices.
 kmodtool  --target %{_target_cpu}  --repo rpmfusion --kmodname %{name} %{?buildforkernels:--%{buildforkernels}} %{?kernels:--for-kernels "%{?kernels}"} 2>/dev/null
 %setup -q -c -T -a 0
 for kernel_version  in %{?kernel_versions} ; do
-	cp -a evdi-3a82424f1a1e0154ff6dd910a3ff15fe01ea6170/module _kmod_build_${kernel_version%%___*}
+	cp -a evdi-%{evdi_commit}0/module _kmod_build_${kernel_version%%___*}
 done
 
 %build
@@ -61,6 +61,8 @@ done
 
 
 %changelog
+* Sun May 18 2025 regulad <regulad@regulad.xyz> 1.14.10
+- Latest 1.14.10 release
 * Sun Jan 05 2025 ullebe1 <ullebe1@gmail.com> 1.14.8-1
 - Latest 1.14.8-1 release
 * Sun Jan 05 2025 ullebe1 <ullebe1@gmail.com> 1.14.7-1
