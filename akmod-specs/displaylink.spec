@@ -149,7 +149,7 @@ cp -a 99-displaylink.rules %{buildroot}%{_udevrulesdir}
 cp -a 20-displaylink.conf %{buildroot}%{_datadir}/X11/xorg.conf.d
 
 %changelog
-* Sun May 18 2025 regulad <regulad@regulad.xyz> 6.1.1
+* Sun May 18 2025 regulad <regulad@regulad.xyz> 6.1.1-1
 - Latest 6.1.1 release
 * Sun Jan 05 2025 ullebe1 <ullebe1@gmail.com> 6.1.0-2
 - Update libevdi dependency to 1.14.8

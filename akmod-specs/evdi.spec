@@ -42,7 +42,7 @@ cat > %{buildroot}%{_modprobedir}/evdi.conf <<< "options evdi initial_device_cou
 
 
 %changelog
-* Sun May 18 2025 regulad <regulad@regulad.xyz> 1.14.10
+* Sun May 18 2025 regulad <regulad@regulad.xyz> 1.14.10-1
 - Latest 1.14.10 release
 * Sun Jan 05 2025 ullebe1 <ullebe1@gmail.com> 1.14.8-1
 - Latest 1.14.8-1 release
