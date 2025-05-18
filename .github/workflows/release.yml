@@ -11,13 +11,13 @@ jobs:
       matrix:
         include:
           - os: fedora
-            version: 39
-            dockernamespace: quay.io/fedora/fedora
-          - os: fedora
             version: 40
             dockernamespace: quay.io/fedora/fedora
           - os: fedora
             version: 41
+            dockernamespace: quay.io/fedora/fedora
+          - os: fedora
+            version: 42
             dockernamespace: quay.io/fedora/fedora
           - os: centos-stream
             version: stream9
@@ -33,6 +33,10 @@ jobs:
       image: ${{ matrix.dockernamespace }}:${{ matrix.version }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Make sure awk is present
+        run: |
+          if [ ${{ matrix.version }} -gt 40 ]; then dnf5 install gawk -y; else dnf install gawk -y; fi
 
       - name: Get version
         run: |
@@ -86,13 +90,13 @@ jobs:
       matrix:
         include:
           - os: fedora
-            version: 39
-            dockernamespace: quay.io/fedora/fedora
-          - os: fedora
             version: 40
             dockernamespace: quay.io/fedora/fedora
           - os: fedora
             version: 41
+            dockernamespace: quay.io/fedora/fedora
+          - os: fedora
+            version: 42
             dockernamespace: quay.io/fedora/fedora
           - os: centos-stream
             version: stream9
@@ -108,6 +112,10 @@ jobs:
       image: ${{ matrix.dockernamespace }}:${{ matrix.version }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Make sure awk is present
+        run: |
+          if [ ${{ matrix.version }} -gt 40 ]; then dnf5 install gawk -y; else dnf install gawk -y; fi
 
       - name: Get version
         run: |
