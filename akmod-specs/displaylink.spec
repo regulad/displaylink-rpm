@@ -5,7 +5,7 @@
 Name:		displaylink
 Version:	6.1.1
 %global displaylink_rpm_commit 7bd1a2a3bf68fa4f924242440348480fbbc45c17
-Release:	2%{?dist}
+Release:	1%{?dist}
 Summary:	Meta-package for proprietary DisplayLinkManager application
 URL:		https://www.synaptics.com/products/displaylink-graphics/downloads/ubuntu
 Source0:	https://www.synaptics.com/sites/default/files/exe_files/2025-04/DisplayLink%20USB%20Graphics%20Software%20for%20Ubuntu6.1.1-EXE.zip

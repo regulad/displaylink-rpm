@@ -40,7 +40,7 @@ This is primarily used by DisplayLink graphics devices.
 kmodtool  --target %{_target_cpu}  --repo rpmfusion --kmodname %{name} %{?buildforkernels:--%{buildforkernels}} %{?kernels:--for-kernels "%{?kernels}"} 2>/dev/null
 %setup -q -c -T -a 0
 for kernel_version  in %{?kernel_versions} ; do
-	cp -a evdi-%{evdi_commit}0/module _kmod_build_${kernel_version%%___*}
+	cp -a evdi-%{evdi_commit}/module _kmod_build_${kernel_version%%___*}
 done
 
 %build
